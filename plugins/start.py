@@ -35,17 +35,17 @@ from config import START_PIC, FLOOD, ADMIN
 @Client.on_message(filters.private & filters.command(["start"]))
 async def start(client, message):
     user = message.from_user
-    if not await db.is_user_exist(user.id):
+    if 8 await db.is_user_exist(user.id):
         await db.add_user(user.id)             
     txt=f"👋 Hai {user.mention} \n𝙸'𝚖 𝙰 𝚂𝚒𝚖𝚙𝚕𝚎 𝙵𝚒𝚕𝚎 𝚁𝚎𝚗𝚊𝚖𝚎+𝙵𝚒𝚕𝚎 𝚃𝚘 𝚅𝚒𝚍𝚎𝚘 𝙲𝚘𝚟𝚎𝚛𝚝𝚎𝚛 𝙱𝙾𝚃 𝚆𝚒𝚝𝚑 𝙿𝚎𝚛𝚖𝚊𝚗𝚎𝚗𝚝 𝚃𝚑𝚞𝚖𝚋𝚗𝚊𝚒𝚕 & 𝙲𝚞𝚜𝚝𝚘𝚖 𝙲𝚊𝚙𝚝𝚒𝚘𝚗 𝚂𝚞𝚙𝚙𝚘𝚛𝚝!"
     button=InlineKeyboardMarkup([[
-        InlineKeyboardButton("👼 𝙳𝙴𝚅𝚂 👼", callback_data='dev')
+        InlineKeyboardButton("ᴏᴡɴᴇʀ", url='https://t.me/vis_hnu_bot)
         ],[
-        InlineKeyboardButton('📢 𝚄𝙿𝙳𝙰𝚃𝙴𝚂', url='https://t.me/PYRO_BOTZ'),
-        InlineKeyboardButton('🍂 𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url='https://t.me/PYRO_BOTZ_CHAT')
+        InlineKeyboardButton(' ᴜᴩᴅᴀᴛᴇꜱ', url='https://t.me/wmteams'),
+        InlineKeyboardButton(' ꜱᴜᴩᴩᴏʀᴛ', url='https://t.me/Evamaria_V_Bot')
         ],[
-        InlineKeyboardButton('🍃 𝙰𝙱𝙾𝚄𝚃', callback_data='about'),
-        InlineKeyboardButton('ℹ️ 𝙷𝙴𝙻𝙿', callback_data='help')
+        InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about'),
+        InlineKeyboardButton('ʜᴇʟᴩ', callback_data='help')
         ]])
     if START_PIC:
         await message.reply_photo(START_PIC, caption=txt, reply_markup=button)       
@@ -61,15 +61,15 @@ async def rename_start(client, message):
     fileid = file.file_id
     try:
         text = f"""**__What do you want me to do with this file.?__**\n\n**File Name** :- `{filename}`\n\n**File Size** :- `{filesize}`"""
-        buttons = [[ InlineKeyboardButton("📝 𝚂𝚃𝙰𝚁𝚃 𝚁𝙴𝙽𝙰𝙼𝙴 📝", callback_data="rename") ],
-                   [ InlineKeyboardButton("✖️ 𝙲𝙰𝙽𝙲𝙴𝙻 ✖️", callback_data="cancel") ]]
+        buttons = [[ InlineKeyboardButton("ꜱᴛᴀʀᴛ ʀʀɴᴀᴍᴇ", callback_data="rename") ],
+                   [ InlineKeyboardButton("✖️ ᴄᴀɴᴄᴇʟ ✖️", callback_data="cancel") ]]
         await message.reply_text(text=text, reply_to_message_id=message.id, reply_markup=InlineKeyboardMarkup(buttons))
         await sleep(FLOOD)
     except FloodWait as e:
         await sleep(e.value)
         text = f"""**__What do you want me to do with this file.?__**\n\n**File Name** :- `{filename}`\n\n**File Size** :- `{filesize}`"""
-        buttons = [[ InlineKeyboardButton("📝 𝚂𝚃𝙰𝚁𝚃 𝚁𝙴𝙽𝙰𝙼𝙴 📝", callback_data="rename") ],
-                   [ InlineKeyboardButton("✖️ 𝙲𝙰𝙽𝙲𝙴𝙻 ✖️", callback_data="cancel") ]]
+        buttons = [[ InlineKeyboardButton("ꜱᴛᴀʀᴛ ʀʀɴᴀᴍᴇ", callback_data="rename") ],
+                   [ InlineKeyboardButton("✖️ ᴄᴀɴᴄᴇʟ ✖️", callback_data="cancel") ]]
         await message.reply_text(text=text, reply_to_message_id=message.id, reply_markup=InlineKeyboardMarkup(buttons))
     except:
         pass
@@ -81,13 +81,13 @@ async def cb_handler(client, query: CallbackQuery):
         await query.message.edit_text(
             text=f"""👋 Hai {query.from_user.mention} \n𝙸'𝚖 𝙰 𝚂𝚒𝚖𝚙𝚕𝚎 𝙵𝚒𝚕𝚎 𝚁𝚎𝚗𝚊𝚖𝚎+𝙵𝚒𝚕𝚎 𝚃𝚘 𝚅𝚒𝚍𝚎𝚘 𝙲𝚘𝚟𝚎𝚛𝚝𝚎𝚛 𝙱𝙾𝚃 𝚆𝚒𝚝𝚑 𝙿𝚎𝚛𝚖𝚊𝚗𝚎𝚗𝚝 𝚃𝚑𝚞𝚖𝚋𝚗𝚊𝚒𝚕 & 𝙲𝚞𝚜𝚝𝚘𝚖 𝙲𝚊𝚙𝚝𝚒𝚘𝚗 𝚂𝚞𝚙𝚙𝚘𝚛𝚝! """,
             reply_markup=InlineKeyboardMarkup( [[
-                InlineKeyboardButton("👼 𝙳𝙴𝚅𝚂 👼", callback_data='dev')                
+                InlineKeyboardButton("ᴏᴡɴᴇʀ", url='https://t.me/vis_hnu_bot)                
                 ],[
-                InlineKeyboardButton('📢 𝚄𝙿𝙳𝙰𝚃𝙴𝚂', url='https://t.me/PYRO_BOTZ'),
-                InlineKeyboardButton('🍂 𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url='https://t.me/PYRO_BOTZ_CHAT')
+                InlineKeyboardButton(' ᴜᴩᴅᴀᴛᴇꜱ', url='https://t.me/wmteams'),
+                InlineKeyboardButton(' ꜱᴜᴩᴩᴏʀᴛ', url='https://t.me/Evamaria_V_Bot')
                 ],[
-                InlineKeyboardButton('🍃 𝙰𝙱𝙾𝚄𝚃', callback_data='about'),
-                InlineKeyboardButton('ℹ️ 𝙷𝙴𝙻𝙿', callback_data='help')
+                InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about'),
+                InlineKeyboardButton('ʜᴇʟᴩ', callback_data='help')
                 ]]
                 )
             )
@@ -98,10 +98,10 @@ async def cb_handler(client, query: CallbackQuery):
                #⚠️ don't change source code & source link ⚠️ #
                InlineKeyboardButton("❣️ 𝚂𝙾𝚄𝚁𝙲𝙴", url="https://github.com/TEAM-PYRO-BOTZ/PYRO-RENAME-BOT")
                ],[
-               InlineKeyboardButton("❤️‍🔥 𝙷𝙾𝚆 𝚃𝙾 𝚄𝚂𝙴  ❤️‍🔥", url='https://youtu.be/BiC66uFJsio')
+               InlineKeyboardButton("❤️‍🔥 ɴᴇᴡ ᴍᴏᴠɪᴇꜱ  ❤️‍🔥", url='https://t.me/+G0GKFwjg_Pg5NGM1')
                ],[
-               InlineKeyboardButton("🔒 𝙲𝙻𝙾𝚂𝙴", callback_data = "close"),
-               InlineKeyboardButton("◀️ 𝙱𝙰𝙲𝙺", callback_data = "start")
+               InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data = "close"),
+               InlineKeyboardButton("ʙᴀᴄᴋ", callback_data = "start")
                ]]
             )
         )
@@ -113,10 +113,10 @@ async def cb_handler(client, query: CallbackQuery):
                #⚠️ don't change source code & source link ⚠️ #
                InlineKeyboardButton("❣️ 𝚂𝙾𝚄𝚁𝙲𝙴", url="https://github.com/TEAM-PYRO-BOTZ/PYRO-RENAME-BOT")
                ],[
-               InlineKeyboardButton("🖥️ 𝙷𝙾𝚆 𝚃𝙾 𝙼𝙰𝙺𝙴", url="https://youtu.be/GfulqsSnTv4")
+               InlineKeyboardButton("ʜᴏᴡ ᴛᴏ ᴍᴀᴋᴇ", url="https://youtu.be/GfulqsSnTv4")
                ],[
-               InlineKeyboardButton("🔒 𝙲𝙻𝙾𝚂𝙴", callback_data = "close"),
-               InlineKeyboardButton("◀️ 𝙱𝙰𝙲𝙺", callback_data = "start")
+               InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data = "close"),
+               InlineKeyboardButton("ʙᴀᴄᴋ", callback_data = "start")
                ]]
             )
         )
@@ -127,10 +127,10 @@ async def cb_handler(client, query: CallbackQuery):
                #⚠️ don't change source code & source link ⚠️ #
                InlineKeyboardButton("❣️ 𝚂𝙾𝚄𝚁𝙲𝙴", url="https://github.com/TEAM-PYRO-BOTZ/PYRO-RENAME-BOT")
                ],[
-               InlineKeyboardButton("🖥️ 𝙷𝙾𝚆 𝚃𝙾 𝙼𝙰𝙺𝙴", url="https://youtu.be/GfulqsSnTv4")
+               InlineKeyboardButton("ʜᴏᴡ ᴛᴏ ᴍᴀᴋᴇ", url="https://youtu.be/GfulqsSnTv4")
                ],[
-               InlineKeyboardButton("🔒 𝙲𝙻𝙾𝚂𝙴", callback_data = "close"),
-               InlineKeyboardButton("◀️ 𝙱𝙰𝙲𝙺", callback_data = "start")
+               InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data = "close"),
+               InlineKeyboardButton("ʙᴀᴄᴋ", callback_data = "start")
                ]]
             )
         )
